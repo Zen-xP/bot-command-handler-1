@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { log } = require("console");
+
 module.exports = {
   name: 'ready',
   run(client) {
