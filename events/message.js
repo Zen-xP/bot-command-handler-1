@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const fs = require('fs');
 const cooldowns = new Discord.Collection();
 const db = require('megadb')
+const sh = require('chalk')
 
 module.exports = {
     name: 'message',
@@ -74,7 +75,8 @@ module.exports = {
         //ejecucion de comandos
         try {
 
-            console.log("\nEjecutando el comando: " + command.name + "...");
+            process.stdout.write(sh.green(`\nEjecutando el comando ${command.name}...\n`));
+            process.stdout.write("->")
             command.execute(message, args, prefix, client);
 
         } catch (err) {

@@ -8,6 +8,7 @@ const Discord = require("discord.js"),
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 client.categoria = [];
+client.console = new Discord.Collection();
 
 // event handler para eventos propios
 fs.readdirSync('./utils').map(evento => {
