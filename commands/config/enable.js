@@ -51,7 +51,6 @@ module.exports = {
                 message.channel.send('Ese comando no existe')
                 return
             }
-            console.log(command.name);
             if (comandos.includes(command.name)) {
                 config.extract('configuracion.comandosDesactivados', command.name)
                 message.channel.send(`Ok habilite el comando ${argumentos}`)

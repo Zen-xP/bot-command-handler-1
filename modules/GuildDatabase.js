@@ -7,7 +7,6 @@ module.exports = {
         let config = new db.crearDB(message.guild.id, 'servidores')
         let existeConfig = await config.obtener('configuracion')
         if (!existeConfig) {
-            console.log(`Creando base de datos para ${message.guild.name} (${message.guild.id})`);
             config.establecer('configuracion.prefix', '/')
             config.establecer('configuracion.comandosDesactivados', [])
             config.establecer('configuracion.categoriasDesactivadas', [])

@@ -1,4 +1,4 @@
-
+const Discord = require("discord.js")
 module.exports = {
     name: 'ping',
     description: 'Muestra el ping entre la API de Discord y el bot',
@@ -7,11 +7,10 @@ module.exports = {
     disable: true,
 
     execute: async (message, args) => {
-
         let ping = Math.floor(message.client.ws.ping);
-        message.channel.send(":ping_pong: Pong!")
-            .then(m => {
-                m.edit(`:incoming_envelope: Ping Mensajes: \`${ Math.floor(+ m.createdTimestamp - Date.now())} ms\`\n:satellite_orbital: Ping DiscordAPI: \`${+ ping} ms\``);
-            });
+        const embed = new Discord.MessageEmbed()
+            .setDescription(`🏓 Pong DiscordAPI: \`${ping} ms\``)
+            .setColor("RANDOM")
+        message.channel.send(embed);
     }
 }
