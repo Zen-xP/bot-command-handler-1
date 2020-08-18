@@ -1,8 +1,9 @@
 module.exports = {
     name: "help",
-    execute(client){
-        client.console.map(c=>{
-            console.log(c.name);
+    execute(client) {
+        var consola = client.console.map(c => {
+            return c.name;
         })
+        console.log(consola.join(" || "));
     }
 }

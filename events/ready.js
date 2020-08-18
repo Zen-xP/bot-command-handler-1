@@ -17,9 +17,17 @@ module.exports = {
       client.console.set(i.name, i)
     })
     var consola = process.openStdin()
+    function y(){
+      process.stdout.write("->")
+    }
+    y()
     consola.addListener("data", d =>{
-      const command = client.console.get(d.toString().toLowercase().trim())
-      if(!command) return
+      var data = d.toString().toLowerCase().trim()
+      if (!data) return y()
+      const command = client.console.get(data)
+      if(!command) return console.log("Ese comando no existe"), y()
+      command.execute(client, y)
+      y()
     })
   }
 }
