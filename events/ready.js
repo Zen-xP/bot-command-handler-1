@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { version } = require("../package.json")
 
 module.exports = {
   name: 'ready',
@@ -12,20 +13,21 @@ module.exports = {
       },
       status: "ONLINE",
     });
-    fs.readdirSync("./console").map(m=>{
+    console.log(`\nConsola de ${client.user.username} [Versión ${version}]\nCopyright (c) Daniel Alejandro Palma Garcia. Todos los derechos reservados. `)
+    fs.readdirSync("./console").map(m => {
       const i = require(`../console/${m}`)
       client.console.set(i.name, i)
     })
     var consola = process.openStdin()
-    function y(){
+    function y() {
       process.stdout.write("->")
     }
     y()
-    consola.addListener("data", d =>{
+    consola.addListener("data", d => {
       var data = d.toString().toLowerCase().trim()
       if (!data) return y()
       const command = client.console.get(data)
-      if(!command) return console.log("Ese comando no existe"), y()
+      if (!command) return console.log("Ese comando no existe"), y()
       command.execute(client, y)
       y()
     })

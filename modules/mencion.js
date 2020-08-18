@@ -1,6 +1,5 @@
 const Discord = require('discord.js')
 const enfriamiento = new Discord.Collection()
-const db = require('megadb')
 
 module.exports = {
     run: async (message, client, prefix) => {
